@@ -1,0 +1,18 @@
+$mainColor: #c7c7c7;
+nav {
+    grid-area: nav;
+    background-color: $mainColor;
+    ul {
+        width: 100%;
+        li {
+            width: 100%;
+            padding-left: 10%;
+            a {
+                color: white;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
