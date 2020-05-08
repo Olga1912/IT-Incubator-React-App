@@ -1,0 +1,19 @@
+.app-container {
+    margin: 0 auto;
+    width: 80vw;
+    display: grid;
+    grid-template-areas: 
+    "head head head"
+    "nav cont cont";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr;
+    grid-gap: 10px;
+}
+
+.nav {
+    grid-area: nav;
+}
+
+.content {
+    grid-area: cont;
+}

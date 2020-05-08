@@ -1,0 +1,16 @@
+@import './../../mixins.scss';
+
+.header {
+    padding: 0 15px;
+    grid-area: head;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+        @include font_parameters ($size: 1.7rem, $fontFamily: 'Open Sans', $color: white, $fontWeight: 500);
+        text-decoration: none;
+    }
+    span {
+        @include font_parameters  ($color: white);
+    }
+}

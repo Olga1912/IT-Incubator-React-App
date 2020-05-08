@@ -1,0 +1,9 @@
+$mainBlackColor: #343a40;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;500&display=swap');
+
+@mixin font_parameters ($size: 14px, $color: black, $fontFamily: 'Roboto', $fontWeight: 400) {
+    font-size: $size;
+    color: $color;
+    font-family: $fontFamily;
+    font-weight: $fontWeight;
+}
