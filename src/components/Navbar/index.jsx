@@ -1,24 +1,35 @@
 import React from "react";
-import './navbar.scss';
+import "./navbar.scss";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="nav  navbar-dark bg-dark">
       <ul>
         <li className="nav-item">
-          <a className="nav-link" href="">Profile</a>
+          <NavLink className="nav-link" to="/profile">
+            Profile
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="">Messages</a>
+          <NavLink className="nav-link" to="/dialogs">
+            Messages
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="">News</a>
+          <NavLink className="nav-link" to="/news">
+            News
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="">Music</a>
+          <NavLink className="nav-link" to="/music">
+            Music
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="">Settings</a>
+          <NavLink className="nav-link" to="/settings">
+            Settings
+          </NavLink>
         </li>
       </ul>
     </nav>
@@ -26,4 +37,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

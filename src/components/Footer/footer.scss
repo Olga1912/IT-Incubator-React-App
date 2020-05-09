@@ -1,0 +1,5 @@
+@import './../../mixins.scss';
+.footer {
+    grid-area: foot;
+    @include font_parameters ( $color: white);
+}

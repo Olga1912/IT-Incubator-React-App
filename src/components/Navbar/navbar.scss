@@ -1,19 +1,25 @@
 @import './../../mixins.scss';
 
 .nav {
+    grid-area: nav;
     padding: 20px 0;
    ul {
        width: 100%;
        height: 100%;
        li {
            width: 100%;
-           &:hover {
-               background: #474f57;
-               transition: 0.5s all;
-           }
            a {
                @include font_parameters ($size: 1rem, $color: white);
-               
+               display: inline-block;
+               width: 100%;
+               &:hover {
+                background: #474f57;
+                transition: 0.5s all;
+            }
+            &.active {
+                background: white;
+                color: black;
+        }
            }
        }
    }

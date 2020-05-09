@@ -3,16 +3,19 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import Profile from "./components/Profile";
+import MainContent from "./components/MainContent";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
+    <Router>
     <div className="app-container">
       <Header />
       <Navbar/>
-      <Profile/>
+      <MainContent/>
       <Footer />
     </div>
+    </Router>
   );
 }
 
