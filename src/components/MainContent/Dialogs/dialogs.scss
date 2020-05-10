@@ -1,0 +1,7 @@
+@import '../../../mixins.scss';
+.dialogs-wrapper {
+    display: grid;
+    grid-template-columns: 1.3fr 3fr;
+    grid-column-gap: 20px;
+
+}

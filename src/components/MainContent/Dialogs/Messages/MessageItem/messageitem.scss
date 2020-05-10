@@ -1,0 +1,27 @@
+@import '../../../../../mixins.scss';
+
+.message-item-wrapper {
+    .message-item {
+        display: inline-block;
+        position: relative;
+        margin: 10px;
+        padding: 10px;
+        border: 2px solid $mainGrayColor;
+        background-color: $mainGrayColor;
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: -6px;
+            width: 10px;
+            height: 10px;
+            transform: rotate(45deg);
+            border-top: 0px;
+            border-right: 0px;
+            border: 2px solid $mainGrayColor;
+            background: $mainGrayColor;
+            
+        }
+    }
+}

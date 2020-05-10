@@ -9,12 +9,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <Router>
-    <div className="app-container">
-      <Header />
-      <Navbar/>
-      <MainContent/>
-      <Footer />
-    </div>
+      <div className="app-container">
+        <Header />
+        <Navbar />
+        <MainContent />
+        <Footer />
+      </div>
     </Router>
   );
 }

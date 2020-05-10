@@ -9,13 +9,13 @@ import { Route } from "react-router-dom";
 
 const MainContent = () => {
   return (
-      <div className="content">
-        <Route path="/profile" component={Profile} />
-        <Route path="/dialogs" component={Dialogs} />
-        <Route path="/music" component={Music} />
-        <Route path="/news" component={News} />
-        <Route path="/settings" component={Settings} />
-      </div>
+    <div className="content">
+      <Route path="/profile" component={Profile} />
+      <Route path="/dialogs" component={Dialogs} />
+      <Route path="/music" component={Music} />
+      <Route path="/news" component={News} />
+      <Route path="/settings" component={Settings} />
+    </div>
   );
 };
 
