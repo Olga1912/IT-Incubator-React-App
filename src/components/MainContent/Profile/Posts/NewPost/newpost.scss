@@ -1,0 +1,33 @@
+.post-input-wrapper {
+    form {
+        legend {
+            font-weight: 500;
+        }
+        label {
+            font-size: 1.5em;
+        }
+        fieldset {
+            .title-wrapper {
+                #title {
+                    background-color: #f7f7f9;
+                    border: 3px solid transparent;
+                    &:focus {
+                        color: #55595c;
+                        background-color: #f7f7f9;
+                        border-color: #c6c6c6;;
+                        outline: 0;
+                        transition: 0.5s;
+                    }
+                }
+            }
+            .content-wrapper {
+                #content {
+                    min-height: 150px;
+                    &:focus {
+                        transition: 0.5s;
+                    }
+                }
+            }
+        }
+    }
+}

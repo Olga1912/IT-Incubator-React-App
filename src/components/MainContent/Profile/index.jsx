@@ -1,10 +1,11 @@
 import React from "react";
 import "./profile.scss";
 import Posts from "./Posts";
+import ProfileInfo from "./ProfileInfo";
 const Profile = () => {
   return (
     <div>
-      <div>Ava + description</div>
+      <ProfileInfo/>
       <Posts />
     </div>
   );
