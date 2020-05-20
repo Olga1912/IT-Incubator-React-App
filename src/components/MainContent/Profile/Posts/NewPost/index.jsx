@@ -8,11 +8,11 @@ const NewPost = () => {
         <fieldset>
           <legend>What's new for today?</legend>
           <div className="form-group title-wrapper">
-            <label for="title">Title</label>
+            <label htmlFor="title">Title</label>
             <input type="text" className="form-control-plaintext" id="title" />
           </div>
           <div className="form-group content-wrapper">
-            <label for="content">Body</label>
+            <label htmlFor="content">Body</label>
             <textarea className="form-control" id="content"></textarea>
           </div>
         </fieldset>

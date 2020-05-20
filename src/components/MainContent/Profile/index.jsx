@@ -2,11 +2,11 @@ import React from "react";
 import "./profile.scss";
 import Posts from "./Posts";
 import ProfileInfo from "./ProfileInfo";
-const Profile = () => {
+const Profile = ({state}) => {
   return (
     <div>
       <ProfileInfo/>
-      <Posts />
+      <Posts posts={state.posts}/>
     </div>
   );
 };

@@ -12,9 +12,10 @@
         .personal-details {
             .user-avatar {
                 cursor: pointer;
-                border-radius: 50%;
                 padding-bottom: 30px;
                 margin: 0 auto;
+                background-size: contain;
+                width: 90%;
             }
     
             .name-wrapper {

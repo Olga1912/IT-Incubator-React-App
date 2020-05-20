@@ -9,11 +9,11 @@ const Users = ({ users }) => {
         {users.map((user) => {
           return (
             <UsersItem
-              key={user.login.password}
-              id={`${user.id.value}${user.id.name}`}
-              name={`${user.name.first} ${user.name.last}`}
-              url={user.login.password}
-              avatar={user.picture.thumbnail}
+              key={user.key}
+              id={user.id}
+              name={user.name}
+              url={user.url}
+              avatar={user.avatar}
             />
           );
         })}

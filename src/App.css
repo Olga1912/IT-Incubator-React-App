@@ -1,6 +1,6 @@
 .app-container {
     margin: 0 auto;
-    width: 80vw;
+    max-width:1024px;
     display: grid;
     grid-template-areas: 
     "head head head"
