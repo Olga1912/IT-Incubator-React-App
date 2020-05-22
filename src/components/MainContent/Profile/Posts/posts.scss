@@ -1,3 +1,7 @@
 .posts-wrapper {
+    .ready-posts {
+        display: flex;
+        flex-direction: column-reverse;
+    }
     padding-top: 30px;
 }
