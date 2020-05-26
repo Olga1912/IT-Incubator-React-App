@@ -1,3 +1,9 @@
+const addPost = "add-post";
+const setPostTitle = "set-post-title";
+const setPostText = "set-post-text";
+const addMessage = "add-new-message";
+const setMessageText = "set-message-text";
+
 let store = {
   _state: {
     messagesPage: {
@@ -32,6 +38,7 @@ let store = {
           title: "Guys and I are going to the BAR tonight. R U with us?",
         },
       ],
+      newMessageText: "",
     },
     profilePage: {
       posts: [
@@ -52,7 +59,7 @@ let store = {
     this._callSubscriber = observer;
   },
   dispatch(action) {
-    if (action.type === "add-post") {
+    if (action.type === addPost) {
       const { newPostTitle, newPostText } = this._state.profilePage;
       if (newPostTitle && newPostText) {
         const newPost = {
@@ -61,18 +68,58 @@ let store = {
           body: newPostText,
         };
         this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostTitle = '';
-        this._state.profilePage.newPostText = '';
+        this._state.profilePage.newPostTitle = "";
+        this._state.profilePage.newPostText = "";
       }
       this._callSubscriber(this._state);
-    } else if (action.type === "set-post-title") {
+    } else if (action.type === setPostTitle) {
       this._state.profilePage.newPostTitle = action.title;
       this._callSubscriber(this._state);
-    } else if (action.type === "set-post-text") {
+    } else if (action.type === setPostText) {
       this._state.profilePage.newPostText = action.text;
+      this._callSubscriber(this._state);
+    } else if (action.type === addMessage) {
+      const { newMessageText } = this._state.messagesPage;
+      if (newMessageText) {
+        const newMessage = {
+          id: Date.now(),
+          title: newMessageText,
+        };
+        this._state.messagesPage.messages.push(newMessage);
+        this._state.messagesPage.newMessageText = "";
+      }
+      this._callSubscriber(this._state);
+    } else if (action.type === setMessageText) {
+      this._state.messagesPage.newMessageText = action.text;
       this._callSubscriber(this._state);
     }
   },
 };
+const createMessageHandlerAction = () => {
+  return { type: addMessage };
+};
 
-export default store;
+const createMessageTextChangeHandlerAction = (text) => {
+  return { type: setMessageText, text: text };
+};
+
+const createPostHandlerAction = () => {
+  return { type: addPost };
+};
+
+const createTitleChangeHandlerAction = (title) => {
+  return { type: setPostTitle, title: title };
+};
+
+const createTextChangeHandlerAction = (text) => {
+  return { type: setPostText, text: text };
+};
+
+export {
+  store,
+  createPostHandlerAction,
+  createTitleChangeHandlerAction,
+  createTextChangeHandlerAction,
+  createMessageTextChangeHandlerAction,
+  createMessageHandlerAction,
+};

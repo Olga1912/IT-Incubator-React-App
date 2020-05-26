@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import MainContent from "./components/MainContent";
@@ -12,11 +11,7 @@ function App({ state, dispatch }) {
       <div className="app-container">
         <Header />
         <Navbar />
-        <MainContent
-          state = {state}
-          dispatch = {dispatch}
-        />
-        <Footer />
+        <MainContent state={state} dispatch={dispatch} />
       </div>
     </Router>
   );

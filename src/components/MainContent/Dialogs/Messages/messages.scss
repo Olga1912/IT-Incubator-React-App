@@ -1,4 +1,6 @@
 .messages {
-   display: flex;
-    flex-direction: column-reverse;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }

@@ -12,16 +12,13 @@ const MainContent = ({ state, dispatch }) => {
     <div className="content">
       <Route
         path="/profile"
-        render={() => (
-          <Profile
-            state = {state.profilePage}
-            dispatch = {dispatch}
-          />
-        )}
+        render={() => <Profile state={state.profilePage} dispatch={dispatch} />}
       />
       <Route
         path="/dialogs"
-        render={() => <Dialogs state={state.messagesPage} />}
+        render={() => (
+          <Dialogs state={state.messagesPage} dispatch={dispatch} />
+        )}
       />
       <Route path="/music" component={Music} />
       <Route path="/news" component={News} />

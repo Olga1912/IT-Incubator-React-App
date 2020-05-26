@@ -1,20 +1,25 @@
 import React from "react";
 import "./newpost.scss";
+import {
+  createPostHandlerAction,
+  createTitleChangeHandlerAction,
+  createTextChangeHandlerAction,
+} from "./../../../../../redux/state";
 
 const NewPost = ({ dispatch, newPostTitle, newPostText }) => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
   };
   const postHandler = () => {
-    dispatch({ type: "add-post" });
+    dispatch(createPostHandlerAction());
   };
 
   const titleChangeHandler = (event) => {
-    dispatch({ type: "set-post-title", title: event.target.value });
+    dispatch(createTitleChangeHandlerAction(event.target.value));
   };
 
   const textChangeHandler = (event) => {
-    dispatch({ type: "set-post-text", text: event.target.value });
+    dispatch(createTextChangeHandlerAction(event.target.value));
   };
 
   return (
