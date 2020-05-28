@@ -4,7 +4,7 @@ import {
   createPostHandlerAction,
   createTitleChangeHandlerAction,
   createTextChangeHandlerAction,
-} from "./../../../../../redux/state";
+} from "./../../../../../redux/profile-reducer";
 
 const NewPost = ({ dispatch, newPostTitle, newPostText }) => {
   const formSubmitHandler = (event) => {

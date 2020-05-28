@@ -3,7 +3,7 @@ import "./newmessage.scss";
 import {
   createMessageTextChangeHandlerAction,
   createMessageHandlerAction,
-} from "../../../../../redux/state";
+} from "../../../../../redux/dialogs-reducer";
 
 const NewMessage = ({ dispatch, newMessageText }) => {
   const formSubmitHandler = (event) => {
