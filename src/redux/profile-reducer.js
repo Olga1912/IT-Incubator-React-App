@@ -36,21 +36,21 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-const createPostHandlerAction = () => {
+const createPostAction = () => {
   return { type: addPost };
 };
 
-const createTitleChangeHandlerAction = (title) => {
+const createTitleChangeAction = (title) => {
   return { type: setPostTitle, title: title };
 };
 
-const createTextChangeHandlerAction = (text) => {
+const createTextChangeAction = (text) => {
   return { type: setPostText, text: text };
 };
 
 export {
   profileReducer,
-  createPostHandlerAction,
-  createTitleChangeHandlerAction,
-  createTextChangeHandlerAction,
+  createPostAction,
+  createTitleChangeAction,
+  createTextChangeAction,
 };

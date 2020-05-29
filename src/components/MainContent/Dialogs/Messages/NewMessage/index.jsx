@@ -1,22 +1,11 @@
 import React from "react";
 import "./newmessage.scss";
-import {
-  createMessageTextChangeHandlerAction,
-  createMessageHandlerAction,
-} from "../../../../../redux/dialogs-reducer";
 
-const NewMessage = ({ dispatch, newMessageText }) => {
+const NewMessage = ({ updateMessageText, sendMessage, newMessageText }) => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
   };
 
-  const onMessageChange = (event) => {
-    dispatch(createMessageTextChangeHandlerAction(event.target.value));
-  };
-
-  const onCreateNewMessage = () => {
-    dispatch(createMessageHandlerAction());
-  };
   return (
     <div className="post-input-wrapper">
       <form action="" className="post-form" onSubmit={formSubmitHandler}>
@@ -24,7 +13,7 @@ const NewMessage = ({ dispatch, newMessageText }) => {
           <div className="form-group new-message-wrapper">
             <input
               value={newMessageText}
-              onChange={onMessageChange}
+              onChange={updateMessageText}
               type="text"
               className="form-control-plaintext"
               id="newMessage"
@@ -32,7 +21,7 @@ const NewMessage = ({ dispatch, newMessageText }) => {
           </div>
           <button
             id="submit-btn"
-            onClick={onCreateNewMessage}
+            onClick={sendMessage}
             className="btn btn-outline-success"
           >
             Send

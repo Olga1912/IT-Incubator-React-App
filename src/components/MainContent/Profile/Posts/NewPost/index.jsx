@@ -1,25 +1,15 @@
 import React from "react";
 import "./newpost.scss";
-import {
-  createPostHandlerAction,
-  createTitleChangeHandlerAction,
-  createTextChangeHandlerAction,
-} from "./../../../../../redux/profile-reducer";
 
-const NewPost = ({ dispatch, newPostTitle, newPostText }) => {
+const NewPost = ({
+  addNewPost,
+  updatePostTitle,
+  updatePostText,
+  newPostTitle,
+  newPostText,
+}) => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
-  };
-  const postHandler = () => {
-    dispatch(createPostHandlerAction());
-  };
-
-  const titleChangeHandler = (event) => {
-    dispatch(createTitleChangeHandlerAction(event.target.value));
-  };
-
-  const textChangeHandler = (event) => {
-    dispatch(createTextChangeHandlerAction(event.target.value));
   };
 
   return (
@@ -33,7 +23,7 @@ const NewPost = ({ dispatch, newPostTitle, newPostText }) => {
               type="text"
               className="form-control-plaintext"
               value={newPostTitle}
-              onChange={titleChangeHandler}
+              onChange={updatePostTitle}
               id="title"
             />
           </div>
@@ -41,13 +31,13 @@ const NewPost = ({ dispatch, newPostTitle, newPostText }) => {
             <label htmlFor="content">Body</label>
             <textarea
               value={newPostText}
-              onChange={textChangeHandler}
+              onChange={updatePostText}
               className="form-control"
               id="content"
             ></textarea>
           </div>
           <button
-            onClick={postHandler}
+            onClick={addNewPost}
             id="submit-btn"
             className="btn btn-outline-success"
           >

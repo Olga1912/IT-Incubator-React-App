@@ -56,16 +56,16 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-const createMessageHandlerAction = () => {
+const sendMessageAction = () => {
   return { type: addMessage };
 };
 
-const createMessageTextChangeHandlerAction = (text) => {
+const updateMessageTextAction = (text) => {
   return { type: setMessageText, text: text };
 };
 
 export {
   dialogsReducer,
-  createMessageHandlerAction,
-  createMessageTextChangeHandlerAction,
+  updateMessageTextAction,
+  sendMessageAction,
 };
