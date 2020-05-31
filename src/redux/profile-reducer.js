@@ -12,6 +12,7 @@ const initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
+  let newState = { ...state };
   switch (action.type) {
     case addPost:
       if (state.newPostTitle && state.newPostText) {
@@ -20,17 +21,18 @@ const profileReducer = (state = initialState, action) => {
           title: state.newPostTitle,
           body: state.newPostText,
         };
-        state.posts.push(newPost);
-        state.newPostTitle = "";
-        state.newPostText = "";
+        newState.posts = [...state.posts];
+        newState.posts.push(newPost);
+        newState.newPostTitle = "";
+        newState.newPostText = "";
       }
-      return state;
+      return newState;
     case setPostTitle:
-      state.newPostTitle = action.title;
-      return state;
+      newState.newPostTitle = action.title;
+      return newState;
     case setPostText:
-      state.newPostText = action.text;
-      return state;
+      newState.newPostText = action.text;
+      return newState;
     default:
       return state;
   }

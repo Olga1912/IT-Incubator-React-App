@@ -1,13 +1,13 @@
 import React from "react";
 import "./dialogs.scss";
-import Users from "./Users";
 import MessagesContainer from "./Messages/MessagesContainer";
+import UsersContainer from "./Users/UsersContainer";
 
-const Dialogs = ({ state, dispatch }) => {
+const Dialogs = () => {
   return (
     <div className="dialogs-wrapper">
-      <Users users={state.users} />
-      <MessagesContainer state={state} dispatch={dispatch} />
+      <UsersContainer />
+      <MessagesContainer />
     </div>
   );
 };

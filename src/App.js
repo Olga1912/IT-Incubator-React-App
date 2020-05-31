@@ -5,13 +5,13 @@ import Navbar from "./components/Navbar";
 import MainContent from "./components/MainContent";
 import { BrowserRouter as Router } from "react-router-dom";
 
-function App({ state, dispatch }) {
+function App() {
   return (
     <Router>
       <div className="app-container">
         <Header />
         <Navbar />
-        <MainContent state={state} dispatch={dispatch} />
+        <MainContent />
       </div>
     </Router>
   );

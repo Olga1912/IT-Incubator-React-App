@@ -37,6 +37,7 @@ const initialState = {
 };
 
 const dialogsReducer = (state = initialState, action) => {
+  let newState = { ...state };
   switch (action.type) {
     case addMessage:
       if (state.newMessageText) {
@@ -44,13 +45,14 @@ const dialogsReducer = (state = initialState, action) => {
           id: Date.now(),
           title: state.newMessageText,
         };
-        state.messages.push(newMessage);
-        state.newMessageText = "";
+        newState.messages = [...state.messages];
+        newState.messages.push(newMessage);
+        newState.newMessageText = "";
       }
-      return state;
+      return newState;
     case setMessageText:
-      state.newMessageText = action.text;
-      return state;
+      newState.newMessageText = action.text;
+      return newState;
     default:
       return state;
   }
@@ -64,8 +66,4 @@ const updateMessageTextAction = (text) => {
   return { type: setMessageText, text: text };
 };
 
-export {
-  dialogsReducer,
-  updateMessageTextAction,
-  sendMessageAction,
-};
+export { dialogsReducer, updateMessageTextAction, sendMessageAction };
