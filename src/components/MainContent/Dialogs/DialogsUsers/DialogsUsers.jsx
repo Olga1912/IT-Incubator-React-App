@@ -1,13 +1,12 @@
 import React from "react";
 import "./users.scss";
-import UsersItem from "./UsersItem";
+import DialogsUsersItem from "./DialogsUsersItem";
 
-const Users = ({ users }) => {
+const DialogsUsers = ({ users }) => {
   const readyUsers = users.map((user) => {
     return (
-      <UsersItem
-        key={user.key}
-        id={user.id}
+      <DialogsUsersItem
+        key={user.id}
         name={user.name}
         url={user.url}
         avatar={user.avatar}
@@ -23,4 +22,4 @@ const Users = ({ users }) => {
   );
 };
 
-export default Users;
+export default DialogsUsers;

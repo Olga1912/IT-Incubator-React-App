@@ -1,0 +1,35 @@
+ .user-item-card {
+    padding: 0;
+    margin-bottom: 20px;
+    &__body {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 1fr 50px;
+        grid-column-gap: 20px;
+        #toggleFollowBtn {
+            grid-column: 1/3;
+            margin: 10px -10px -10px -10px;
+        }
+    }
+    &__avatar {
+    width: 100%;
+    height: 200px;
+    }
+    &__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+        .user-address{
+            grid-column: 2/3;
+            text-align: end;
+            color: rgb(192, 192, 192);
+            &:hover {
+                color: rgb(85, 89, 92);
+            }
+        }
+        .user-status {
+            grid-column:1/3;
+        }
+    }
+}

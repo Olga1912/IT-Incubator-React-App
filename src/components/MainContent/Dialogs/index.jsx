@@ -1,12 +1,12 @@
 import React from "react";
 import "./dialogs.scss";
 import MessagesContainer from "./Messages/MessagesContainer";
-import UsersContainer from "./Users/UsersContainer";
+import DialogUsersContainer from "./DialogsUsers/DialogUsersContainer";
 
 const Dialogs = () => {
   return (
     <div className="dialogs-wrapper">
-      <UsersContainer />
+      <DialogUsersContainer />
       <MessagesContainer />
     </div>
   );

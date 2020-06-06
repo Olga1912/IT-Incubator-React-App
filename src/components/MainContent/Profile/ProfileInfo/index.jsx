@@ -4,7 +4,7 @@ import "./profileinfo.scss";
 const ProfileInfo = () => {
   return (
     <div className="personal-info">
-      <div className="card border-secondary">
+      <div className="card border-success">
         <div className="card-header">Personal information</div>
         <div className="card-body personal-details-wrapper">
           <div className="personal-details">

@@ -4,21 +4,18 @@ const setMessageText = "set-message-text";
 const initialState = {
   users: [
     {
-      key: 1,
       id: 23,
       name: "Jane Smith",
       url: "Jane_Smith",
       avatar: "https://picsum.photos/id/237/200/300",
     },
     {
-      key: 2,
       id: 245,
       name: "Brian Tool",
       url: "Brian_Tool",
       avatar: "https://picsum.photos/id/238/200/300",
     },
     {
-      key: 3,
       id: 876,
       name: "Alexa Vang",
       url: "Alexa_Vang",
@@ -37,7 +34,6 @@ const initialState = {
 };
 
 const dialogsReducer = (state = initialState, action) => {
-  let newState = { ...state };
   switch (action.type) {
     case addMessage:
       if (state.newMessageText) {
@@ -45,14 +41,18 @@ const dialogsReducer = (state = initialState, action) => {
           id: Date.now(),
           title: state.newMessageText,
         };
-        newState.messages = [...state.messages];
-        newState.messages.push(newMessage);
-        newState.newMessageText = "";
+        return {
+          ...state,
+          messages: [...state.messages, newMessage],
+          newMessageText: "",
+        };
       }
-      return newState;
+      return state;
     case setMessageText:
-      newState.newMessageText = action.text;
-      return newState;
+      return {
+        ...state,
+        newMessageText: action.text,
+      };
     default:
       return state;
   }

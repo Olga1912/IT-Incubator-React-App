@@ -2,7 +2,7 @@ import React from "react";
 import "./useritem.scss";
 import { NavLink } from "react-router-dom";
 
-const UserItem = ({ url, avatar, name }) => {
+const DialogsUsersItem = ({ url, avatar, name }) => {
   return (
     <li className="user-item list-group-item d-flex justify-content-between align-items-center">
       <NavLink to={`/dialogs/${url}`}>
@@ -14,4 +14,4 @@ const UserItem = ({ url, avatar, name }) => {
   );
 };
 
-export default UserItem;
+export default DialogsUsersItem;
