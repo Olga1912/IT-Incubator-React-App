@@ -1,5 +1,5 @@
 import Users from "./Users";
-import { toggleFollowingAction } from "../../../redux/users-reducer";
+import { toggleFollowingAction, setUsersAction } from "../../../redux/users-reducer";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
@@ -13,6 +13,9 @@ const mapDispatchToProps = (dispatch) => {
     toggleFollowing: (id) => {
       dispatch(toggleFollowingAction(id));
     },
+    setUsers: (users) => {
+      dispatch(setUsersAction(users))
+    }
   };
 };
 

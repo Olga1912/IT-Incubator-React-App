@@ -1,5 +1,6 @@
 import React from "react";
 import "./users.scss";
+import defaultUserAvatar from "./../../../../assets/images/avatar-placeholder.png";
 
 const UserItem = ({
   id,
@@ -7,11 +8,11 @@ const UserItem = ({
   avatar,
   name,
   status,
-  following,
+  followed,
   toggleFollowing,
 }) => {
   const btnClasses = ["btn"];
-  if (following) {
+  if (followed) {
     btnClasses.push("btn-outline-secondary");
   } else {
     btnClasses.push("btn-outline-success");
@@ -20,10 +21,16 @@ const UserItem = ({
     <div className="card border-secondary user-item-card">
       <div className="card-header user-item-card__header">User</div>
       <div className="card-body user-item-card__body">
-        <img className="user-item-card__avatar" src={avatar} alt={name} />
+        <img
+          className="user-item-card__avatar"
+          src={avatar || defaultUserAvatar}
+          alt={name}
+        />
         <div className="user-item-card__info">
           <h3 className="card-text user-name">{name}</h3>
-          <p className="card-text user-address">{address}</p>
+          <p className="card-text user-address">
+            Location: {address || "Unknown"}
+          </p>
           <p className="card-text user-status">{status}</p>
         </div>
         <button
@@ -31,7 +38,7 @@ const UserItem = ({
           className={btnClasses.join(" ")}
           onClick={() => toggleFollowing(id)}
         >
-          {following ? "Unfollow" : "Follow"}
+          {followed ? "Unfollow" : "Follow"}
         </button>
       </div>
     </div>

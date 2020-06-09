@@ -13,10 +13,10 @@ const MainContent = () => {
     <div className="content">
       <Route path="/profile" render={() => <Profile />} />
       <Route path="/dialogs" render={() => <Dialogs />} />
-      <Route path="/music" component={Music} />
-      <Route path="/news" component={News} />
-      <Route path="/users" component={UsersContainer} />
-      <Route path="/settings" component={Settings} />
+      <Route path="/music" render={() => <Music />} />
+      <Route path="/news" render={() => <News />} />
+      <Route path="/users" render={() => <UsersContainer />} />
+      <Route path="/settings" render={() => <Settings />} />
     </div>
   );
 };
