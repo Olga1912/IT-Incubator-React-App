@@ -1,8 +1,12 @@
 const toggleFollowing = "toggle-following";
 const setUsers = "set-users";
+const setCurrentPage = "set-current-page";
 
 const initialState = {
   users: [],
+  pageSize: 5,
+  totalUsersAmount: 25,
+  currentPage: 1,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -14,7 +18,7 @@ const usersReducer = (state = initialState, action) => {
       };
       const item = newState.users.filter((user) => user.id === action.id)[0];
       item.followed = !item.followed;
-      console.log(item)
+      console.log(item);
       return {
         ...state,
         users: [...state.users],
@@ -22,7 +26,12 @@ const usersReducer = (state = initialState, action) => {
     case setUsers:
       return {
         ...state,
-        users: [...action.users]
+        users: [...action.users],
+      };
+    case setCurrentPage:
+      return {
+        ...state,
+        currentPage: action.page,
       };
     default:
       return state;
@@ -34,7 +43,16 @@ const toggleFollowingAction = (id) => {
 };
 
 const setUsersAction = (users) => {
-  return { type: setUsers, users: users}
-}
+  return { type: setUsers, users: users };
+};
 
-export { usersReducer, toggleFollowingAction, setUsersAction };
+const setCurrentPageAction = (page) => {
+  return { type: setCurrentPage, page: page };
+};
+
+export {
+  usersReducer,
+  toggleFollowingAction,
+  setUsersAction,
+  setCurrentPageAction,
+};

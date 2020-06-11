@@ -1,10 +1,17 @@
 import Users from "./Users";
-import { toggleFollowingAction, setUsersAction } from "../../../redux/users-reducer";
+import {
+  toggleFollowingAction,
+  setUsersAction,
+  setCurrentPageAction,
+} from "../../../redux/users-reducer";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
   return {
     users: state.usersPage.users,
+    pageSize: state.usersPage.pageSize,
+    totalUsersAmount: state.usersPage.totalUsersAmount,
+    currentPage: state.usersPage.currentPage,
   };
 };
 
@@ -14,8 +21,11 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(toggleFollowingAction(id));
     },
     setUsers: (users) => {
-      dispatch(setUsersAction(users))
-    }
+      dispatch(setUsersAction(users));
+    },
+    setCurrentPage: (page) => {
+      dispatch(setCurrentPageAction(page));
+    },
   };
 };
 
