@@ -1,24 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./users.scss";
 import UserItem from "./UserItem";
-import Axios from "axios";
 
 const Users = ({
   users,
   toggleFollowing,
-  setUsers,
   setCurrentPage,
   pageSize,
   totalUsersAmount,
   currentPage,
 }) => {
-  useEffect(() => {
-    Axios.get(
-      `https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`
-    ).then((response) => {
-      setUsers(response.data.items);
-    });
-  }, [setUsers, currentPage, pageSize]);
   const pagesAmount = Math.ceil(totalUsersAmount / pageSize);
   const pages = [];
   for (let i = 1; i <= pagesAmount; i++) {
