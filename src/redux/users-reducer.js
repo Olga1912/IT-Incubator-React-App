@@ -1,12 +1,14 @@
 const toggleFollowing = "toggle-following";
 const setUsers = "set-users";
 const setCurrentPage = "set-current-page";
+const toggleFetching = "toggle-fetching";
 
 const initialState = {
   users: [],
   pageSize: 5,
   totalUsersAmount: 25,
   currentPage: 1,
+  isFetching: true
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -33,6 +35,11 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         currentPage: action.page,
       };
+    case toggleFetching:
+      return {
+        ...state,
+        isFetching: false
+      }
     default:
       return state;
   }
@@ -50,9 +57,14 @@ const setCurrentPageAction = (page) => {
   return { type: setCurrentPage, page: page };
 };
 
+const toggleFetchingAction = () => {
+  return { type: toggleFetching }
+}
+
 export {
   usersReducer,
   toggleFollowingAction,
   setUsersAction,
   setCurrentPageAction,
+  toggleFetchingAction
 };
