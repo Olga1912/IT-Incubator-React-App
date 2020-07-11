@@ -8,7 +8,7 @@ const initialState = {
   pageSize: 5,
   totalUsersAmount: 25,
   currentPage: 1,
-  isFetching: true
+  isFetching: true,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -38,8 +38,8 @@ const usersReducer = (state = initialState, action) => {
     case toggleFetching:
       return {
         ...state,
-        isFetching: false
-      }
+        isFetching: action.isFetching,
+      };
     default:
       return state;
   }
@@ -57,14 +57,14 @@ const setCurrentPageAction = (page) => {
   return { type: setCurrentPage, page: page };
 };
 
-const toggleFetchingAction = () => {
-  return { type: toggleFetching }
-}
+const toggleFetchingAction = (isFetching) => {
+  return { type: toggleFetching, isFetching: isFetching };
+};
 
 export {
   usersReducer,
   toggleFollowingAction,
   setUsersAction,
   setCurrentPageAction,
-  toggleFetchingAction
+  toggleFetchingAction,
 };

@@ -2,15 +2,13 @@ import {
   toggleFollowingAction,
   setUsersAction,
   setCurrentPageAction,
-  toggleFetchingAction
+  toggleFetchingAction,
 } from "../../../redux/users-reducer";
 import { connect } from "react-redux";
 import React, { useEffect } from "react";
 import Axios from "axios";
 import Users from "./Users";
-import preloader from "./../../../assets/images/preloader.svg";
-import "./users.scss";
-
+import Preloader from "./../../preloader/index";
 const UsersContainer = ({
   users,
   toggleFollowing,
@@ -20,24 +18,21 @@ const UsersContainer = ({
   totalUsersAmount,
   currentPage,
   isFetching,
-  toggleFetching
+  toggleFetching,
 }) => {
   useEffect(() => {
+    toggleFetching(true);
     Axios.get(
       `https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`
     ).then((response) => {
       setUsers(response.data.items);
-      toggleFetching()
+      toggleFetching(false);
     });
   }, [setUsers, currentPage, pageSize, toggleFetching]);
 
-  if (isFetching) {
-    return (
-      <div className="preloader-wrapper"><img src={preloader} alt="preloader"/></div>
-    )
-  }
-
-  return (
+  return isFetching ? (
+    <Preloader />
+  ) : (
     <Users
       users={users}
       toggleFollowing={toggleFollowing}
@@ -55,7 +50,7 @@ const mapStateToProps = (state) => {
     pageSize: state.usersPage.pageSize,
     totalUsersAmount: state.usersPage.totalUsersAmount,
     currentPage: state.usersPage.currentPage,
-    isFetching: state.usersPage.isFetching
+    isFetching: state.usersPage.isFetching,
   };
 };
 
@@ -70,9 +65,9 @@ const mapDispatchToProps = (dispatch) => {
     setCurrentPage: (page) => {
       dispatch(setCurrentPageAction(page));
     },
-    toggleFetching: () => {
-      dispatch(toggleFetchingAction());
-    }
+    toggleFetching: (isFetching) => {
+      dispatch(toggleFetchingAction(isFetching));
+    },
   };
 };
 

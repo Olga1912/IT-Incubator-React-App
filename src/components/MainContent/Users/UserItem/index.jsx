@@ -1,6 +1,7 @@
 import React from "react";
 import "./users.scss";
 import defaultUserAvatar from "./../../../../assets/images/avatar-placeholder.png";
+import { NavLink } from "react-router-dom";
 
 const UserItem = ({
   id,
@@ -21,11 +22,13 @@ const UserItem = ({
     <div className="card border-secondary user-item-card">
       <div className="card-header user-item-card__header">User</div>
       <div className="card-body user-item-card__body">
+        <NavLink to={`/profile/${id}`}>
         <img
           className="user-item-card__avatar"
           src={avatar || defaultUserAvatar}
           alt={name}
         />
+        </NavLink>
         <div className="user-item-card__info">
           <h3 className="card-text user-name">{name}</h3>
           <p className="card-text user-address">

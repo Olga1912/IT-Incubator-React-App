@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="header bg-dark">
       <h1>
-        <NavLink to="/profile">Logo</NavLink>
+        Logo
       </h1>
       <span>Log out</span>
     </header>

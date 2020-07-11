@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    a {
+    h1 {
         @include font_parameters ($size: 1.7rem, $fontFamily: 'Open Sans', $color: white, $fontWeight: 500);
         text-decoration: none;
     }
